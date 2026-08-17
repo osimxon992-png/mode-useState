@@ -1,4 +1,3 @@
-import { useState } from "react";
 import logo from "../../assets/Brand Image.png";
 import logoTwo from "../../assets/Brand Image (1).png";
 import backImg from "../../assets/wavy lines acid lime 1.png";
@@ -15,16 +14,15 @@ import icon from "../../assets/Icon Container.png";
 import iconTwo from "../../assets/Icon Container (1).png";
 import "./Banner.css";
 
-const Banner = () => {
-  const [mode, setMode] = useState(true);
+const Banner = ({ mode, setMode }) => {
   return (
     <div>
       <section
-        className={`w-full h-[1340px] bg-cover bg-center ${mode ? "bg-[#F2F2F2]" : "bg-[#0B0B23]"} pt-[48px] px-[120px]`}
+        className={`w-full h-[1400px] bg-cover bg-center ${mode ? "bg-[#F2F2F2]" : "bg-[#0B0B23]"} pt-[48px] px-[120px]`}
         style={{ backgroundImage: `url("${mode ? backImgTwo : backImg}")` }}
       >
         <header
-          className={`w-full h-[88px]  shadow-[0_8px_32px_8px_rgba(37,37,118,0.04)] rounded-[100px] flex items-center justify-between p-[16px_24px] mb-[100px] ${mode ? "bg-[#F2F2F2]" : "bg-[#0B0B23]"}`}
+          className={`w-full h-[88px] shadow-[0_8px_32px_8px_rgba(37,37,118,0.04)] rounded-[100px] flex items-center justify-between p-[16px_24px] mb-[100px] ${mode ? "bg-[#F2F2F2]" : "bg-[#0B0B23]"}`}
         >
           <a href="#">
             <img src={mode ? logoTwo : logo} alt="" />
@@ -42,6 +40,7 @@ const Banner = () => {
               <li>
                 <a
                   className={`flex items-center gap-[8px] font-bold text-[20px] ${mode ? "text-[#5858BE]" : "text-[#fff]"}`}
+                  href="#"
                 >
                   About <img src={mode ? linkImgTwo : linkImg} alt="" />
                 </a>
@@ -49,6 +48,7 @@ const Banner = () => {
               <li>
                 <a
                   className={`flex items-center gap-[8px] font-bold text-[20px] ${mode ? "text-[#5858BE]" : "text-[#fff]"}`}
+                  href="#"
                 >
                   Resources <img src={mode ? linkImgTwo : linkImg} alt="" />
                 </a>
@@ -61,11 +61,12 @@ const Banner = () => {
                 }`}
                 onClick={() => setMode(!mode)}
               >
-                Mode
+                {mode ? "Dark Mode" : "Light Mode"}
               </button>
             </ul>
           </nav>
         </header>
+
         <div className="mb-[100px]">
           <span
             className={`font-bold text-[16px] uppercase ${mode ? "text-[#5858BE]" : "text-[#DDFD00]"} inter`}
@@ -79,7 +80,11 @@ const Banner = () => {
           </h1>
           <div className="flex items-center gap-[32px]">
             <button
-              className={`flex items-center gap-[15px]  font-bold text-[20px] ${mode ? "bg-[#252576] border-2 border-[#fff] shadow-[0_0_8px_4px_rgba(18,18,59,0.16),_inset_0_4px_12px_4px_rgba(255,255,255,0.32)] text-[#fff]" : "bg-[#DDFD00] border-2 border-[#000] shadow-[0_0_8px_4px_rgba(18,18,59,0.16),inset_0_4px_12px_4px_rgba(255,255,255,0.32)]"} p-[24px_48px] rounded-[9999px]`}
+              className={`flex items-center gap-[15px] font-bold text-[20px] ${
+                mode
+                  ? "bg-[#252576] border-2 border-[#fff] shadow-[0_0_8px_4px_rgba(18,18,59,0.16),_inset_0_4px_12px_4px_rgba(255,255,255,0.32)] text-[#fff]"
+                  : "bg-[#DDFD00] border-2 border-[#000] shadow-[0_0_8px_4px_rgba(18,18,59,0.16),inset_0_4px_12px_4px_rgba(255,255,255,0.32)]"
+              } p-[24px_48px] rounded-[9999px]`}
             >
               Get Started <img src={mode ? linkImg : linkImgTwo} alt="" />
             </button>
@@ -90,8 +95,13 @@ const Banner = () => {
             </button>
           </div>
         </div>
+
         <div
-          className={`p-[80px] w-full h-[585px] rounded-[16px] ${mode ? "border-1 border-[#F2F2F2] bg-[#F8F8F8]" : "border-1 border-[#7A7ACB] bg-[#12123B]"}`}
+          className={`p-[80px] w-full h-[585px] rounded-[16px] ${
+            mode
+              ? "border-1 border-[#F2F2F2] bg-[#F8F8F8] shadow-[0px_8px_32px_8px_#301D650A,_0px_20px_26px_4px_#301D650F,_0px_10px_11px_6px_#301D650F]"
+              : "border-1 border-[#7A7ACB] bg-[#12123B] shadow-[0px_8px_32px_8px_#301D650A,_0px_20px_26px_4px_#301D650F,_0px_10px_11px_6px_#301D650F]"
+          }`}
         >
           <span
             className={`font-bold text-[16px] uppercase ${mode ? "text-[#5858BE]" : "text-[#FFFFFF]"} inter`}
@@ -109,6 +119,7 @@ const Banner = () => {
             From initial concept to final deployment, we provide comprehensive
             solutions that redefine your digital footprint.
           </p>
+
           <div className="flex items-center gap-[50px]">
             <div
               className={`w-[323px] h-[224px] rounded-[16px] p-[24px_32px] ${mode ? "bg-[#FCFCFC]" : "bg-[#1C1C59]"}`}
@@ -131,6 +142,7 @@ const Banner = () => {
                 experience and drive interaction.
               </p>
             </div>
+
             <div
               className={`w-[323px] h-[224px] rounded-[16px] p-[24px_32px] ${mode ? "bg-[#FCFCFC]" : "bg-[#1C1C59]"}`}
               style={{
@@ -152,6 +164,7 @@ const Banner = () => {
                 optimal performance.
               </p>
             </div>
+
             <div
               className={`w-[323px] h-[224px] rounded-[16px] p-[24px_32px] ${mode ? "bg-[#FCFCFC]" : "bg-[#1C1C59]"}`}
               style={{
